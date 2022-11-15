@@ -1,6 +1,6 @@
 package spreadsheet
 
-// CellColor is color of a tab.
+// CellColor is background color of a cell
 type CellColor struct {
 	Red   float32 `json:"red"`
 	Green float32 `json:"green"`
