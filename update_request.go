@@ -178,9 +178,14 @@ func (r *updateRequest) UpdateCells(sheet *Sheet) *updateRequest {
 				values["userEnteredValue"] = map[string]string{
 					cellValueType(cell.Value): cell.Value,
 				}
+			case "userEnteredFormat":
+				values["userEnteredFormat"] = map[string]interface{}{
+					"backgroundColor": cell.BackgroundColor,
+				}
 			case "note":
 				values["note"] = cell.Note
 			}
+
 		}
 		r.body["requests"] = append(r.body["requests"], map[string]interface{}{
 			"updateCells": map[string]interface{}{

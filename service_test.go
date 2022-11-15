@@ -130,6 +130,20 @@ func (suite *TestSuite) TestSyncSheet() {
 	suite.NoError(err)
 }
 
+func (suite *TestSuite) TestSyncSheetBackgroundColor() {
+	spreadsheet, err := suite.service.FetchSpreadsheet(spreadsheetID)
+	suite.Require().NoError(err)
+	sheet, err := spreadsheet.SheetByTitle("TestSheet")
+	suite.Require().NoError(err)
+	sheet.UpdateBackgroundColor(1, 6, CellColor{
+		Red:   1.0,
+		Green: 1.0,
+		Blue:  1.0,
+	})
+	err = suite.service.SyncSheet(sheet)
+	suite.NoError(err)
+}
+
 func (suite *TestSuite) TestDeleteRows() {
 	spreadsheet, err := suite.service.FetchSpreadsheet(spreadsheetID)
 	suite.Require().NoError(err)

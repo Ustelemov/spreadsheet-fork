@@ -4,12 +4,13 @@ import "fmt"
 
 // Cell describes a cell data
 type Cell struct {
-	Row            uint
-	Column         uint
-	Value          string
-	Note           string
-	rawValue       ExtendedValue
-	effectiveValue ExtendedValue
+	Row             uint
+	Column          uint
+	Value           string
+	Note            string
+	BackgroundColor CellColor
+	rawValue        ExtendedValue
+	effectiveValue  ExtendedValue
 
 	modifiedFields string
 }

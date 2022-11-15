@@ -140,6 +140,14 @@ func (sheet *Sheet) UpdateNote(row, column int, note string) {
 	})
 }
 
+// UpdateBackgroundColor updates a cell's background color
+func (sheet *Sheet) UpdateBackgroundColor(row, column int, backgroundColor CellColor) {
+	sheet.updateCellField(row, column, func(c *Cell) string {
+		c.BackgroundColor = backgroundColor
+		return "userEnteredFormat"
+	})
+}
+
 // DeleteRows deletes rows from the sheet
 func (sheet *Sheet) DeleteRows(start, end int) (err error) {
 	err = sheet.Spreadsheet.service.DeleteRows(sheet, start, end)
