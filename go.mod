@@ -1,4 +1,4 @@
-module spreadsheet-fork
+module github.com/Ustelemov/spreadsheet-fork
 
 go 1.18
 
